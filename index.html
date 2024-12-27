@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Art Showcase</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Celsius to Jams Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .converter {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="navigation">
-            <a href="sold-art.html">Sold Art</a>
-            <a href="for-sale.html">For Sale</a>
-            <a href="blog.html">Blog</a>
-        </div>
-        <h1 class="raised-title">Your Art Name</h1>
-        <img src="path-to-your-image.jpg" alt="Your Portrait" class="artist-image">
+    <div class="converter">
+        <h1>Celsius to Jams Converter</h1>
+        <p>Enter a temperature in Celsius to convert it to Jams.</p>
+        <input type="number" id="celsius" placeholder="Enter Celsius" />
+        <button onclick="convertToJams()">Convert to Jams</button>
+        <div class="result" id="result"></div>
     </div>
-</body>
 
+    <script>
+        function convertToJams() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            if (isNaN(celsius)) {
+                document.getElementById('result').innerText = "Please enter a valid number.";
+                return;
+            }
+
+            // Conversion formula: J = (69 / 50) * C - 69
+            const jams = (69 / 50) * celsius - 69;
+            document.getElementById('result').innerText = `${celsius}°C is equal to ${jams.toFixed(2)}°J`;
+        }
+    </script>
+</body>
 </html>
+
